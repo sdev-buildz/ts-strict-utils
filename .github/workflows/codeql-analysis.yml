@@ -13,12 +13,11 @@ jobs:
     name: CodeQL Analyze
     runs-on: ubuntu-latest
     steps:
-      - run: 'echo "skipped because CodeQL is available only in public repos."'
-    #   - name: Checkout
-    #     uses: actions/checkout@v7
-    #   - name: Initialize
-    #     uses: github/codeql-action/init@v3
-    #     with:
-    #       queries: security-and-quality
-    #   - name: Perform analysis
-    #     uses: github/codeql-action/analyze@v3
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Initialize
+        uses: github/codeql-action/init@v3
+        with:
+          queries: security-and-quality
+      - name: Perform analysis
+        uses: github/codeql-action/analyze@v3
