@@ -1,0 +1,73 @@
+{
+  "name": "random-tsstutils",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [
+    "utilities",
+    "strict",
+    "map with objects as keys",
+    "typescript"
+  ],
+  "license": "ISC",
+  "author": {
+    "name": "verd-acc",
+    "email": "not-my-mail@gmail.com",
+    "url": "https://github.com/user-name"
+  },
+  "type": "module",
+  "files": [
+    "./dist"
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "check": "pnpm run prettier:check && pnpm run lint && pnpm run type-check && pnpm run coverage && pnpm run knip",
+    "clean": "pnx  rimraf -g **/dist *.tsbuildinfo **/*.tsbuildinfo  **/generated generated coverage docs",
+    "clean:all": "pnpm run clean && pnx rimraf -g **/node_modules node_modules",
+    "release": "pnpm publish && npx @changesets/cli tag",
+    "git-tag": "TAG=\"release-`date +%s`\" && git tag $TAG && git push origin $TAG",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "type-check": "tsc --noEmit",
+    "knip": "knip",
+    "lint": "eslint",
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
+    "docs:user": "typedoc --options typedoc.config.js",
+    "docs:dev": "typedoc --options typedoc.dev.js",
+    "docs:all": "pnpm run docs:user && pnpm run docs:dev"
+  },
+  "dependencies": {
+    "canonical-serialization": "npm:random12341234@^1.2.6"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^1.0.0",
+    "@changesets/cli": "^3.0.0",
+    "@eslint/js": "^10.0.1",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "@vitest/coverage-v8": "^4.1.10",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsdoc": "^63.3.2",
+    "eslint-plugin-tsdoc": "^0.5.2",
+    "globals": "^17.8.0",
+    "knip": "^6.29.0",
+    "prettier": "3.9.6",
+    "tsdown": "^0.22.14",
+    "tsx": "^4.23.1",
+    "typedoc": "^0.28.20",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "typescript-eslint": "^8.65.0",
+    "vitest": "^4.1.10"
+  }
+}
