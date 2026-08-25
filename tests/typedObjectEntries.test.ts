@@ -1,5 +1,5 @@
-import { typedObjectEntries } from '../src/typedObjectEntries'
 import { describe, expect, expectTypeOf, it } from 'vitest'
+import { typedObjectEntries } from '../src/typedObjectEntries'
 
 describe('typedObjectEntries', () => {
   it('provides same result as Object.entries', () => {
@@ -11,7 +11,7 @@ describe('typedObjectEntries', () => {
     const obj = { isActive: true, score: 100 }
 
     // @ts-expect-error - should throw type error.
-    const entries = typedObjectEntries<Record<string, string>>(obj)
+    typedObjectEntries<Record<string, string>>(obj)
   })
 
   it('infers correct tuple types for keys and values', () => {
