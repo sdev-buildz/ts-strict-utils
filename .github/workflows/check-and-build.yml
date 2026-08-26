@@ -14,6 +14,7 @@ jobs:
       matrix:
         os: ['ubuntu-latest']
         node: [22, 24, 26]
+        typescript: ['3.5.0', 4, 5, 6, 7]
     outputs:
       urls: ${{ steps.pkgprnew.outputs.urls }}
     steps:
@@ -27,6 +28,7 @@ jobs:
           version: 11
 
       - run: pnpm ci
+      - run: pnpm add --save-dev typescript@${{ matrix.typescript }}
       - run: pnpm exec prettier --write ./pnpm-lock.yaml
 
       # Run checks and builds.
