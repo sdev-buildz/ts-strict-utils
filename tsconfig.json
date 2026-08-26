@@ -30,6 +30,14 @@
       "@root/*": ["./*"]
     }
   },
-  "exclude": ["**/dist", "**/generated"],
+  "references": [
+    {
+      "path": "./tests"
+    },
+    {
+      "path": "./src"
+    }
+  ],
+  "exclude": ["**/dist"],
   "include": ["./**/*.ts", "./**/*.tsx"]
 }

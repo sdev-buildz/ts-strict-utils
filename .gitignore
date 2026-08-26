@@ -2,7 +2,7 @@
 # Playwright
 **/node_modules  
 **/dist
-.turbo
+**/.turbo
 
 **/*.env*
 !.env.example

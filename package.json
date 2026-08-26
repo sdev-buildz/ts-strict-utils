@@ -37,7 +37,7 @@
     "coverage": "vitest run --coverage",
     "build": "tsdown",
     "dev": "tsdown --watch",
-    "type-check": "tsc --noEmit",
+    "type-check": "tsc --build",
     "coverage:ci": "vitest --coverage --ui=false",
     "knip": "knip",
     "lint": "eslint",

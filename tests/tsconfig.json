@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./dist",
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "paths": {
+      "@ts-strict-utils": ["../src"]
+    }
+  },
+  "references": [
+    {
+      "path": "../src"
+    }
+  ],
+  "include": ["./**/*.ts", "./**/*.tsx"]
+}
