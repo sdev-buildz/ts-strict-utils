@@ -1,5 +1,5 @@
 ---
-"ts-strict-utils": major
+'ts-strict-utils': major
 ---
 
 first stable release
