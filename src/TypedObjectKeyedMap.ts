@@ -45,6 +45,13 @@ export class TypedObjKeyedMap<KeyType, ValueType> extends Map<
     }
   > = new Map()
 
+  constructor(entries?: readonly (readonly [KeyType, ValueType])[] | null) {
+    super()
+    if (entries) {
+      entries.forEach(([key, value]) => this.set(key, value))
+    }
+  }
+
   override get(key: KeyType): ValueType | undefined {
     return this.observablesMap.get(canonicalSerialization(key))?.value
   }
@@ -106,6 +113,6 @@ export class TypedObjKeyedMap<KeyType, ValueType> extends Map<
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     thisArg?: any
   ): void {
-    this.getUnserializedMap().forEach(callbackfn, thisArg)
+    this.getUnserializedMap().forEach(callbackfn, thisArg ?? this)
   }
 }
