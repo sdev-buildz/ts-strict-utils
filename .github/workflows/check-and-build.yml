@@ -46,8 +46,6 @@ jobs:
       matrix:
         typescript: ['3.5.1', 4, 5, 6, 7]
     steps:
-      - run: 'echo ${{ needs.check-and-test-publish.outputs.urls }}'
-
       # v7
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
