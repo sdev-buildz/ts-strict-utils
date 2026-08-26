@@ -24,10 +24,11 @@ Please follow a respectful, collaborative, and inclusive tone in all discussions
 ```
 
 2. Install dependencies:
-   
+
 ```shell
    pnpm install
 ```
+
 3. Run linters, type checks, and tests locally before opening a PR:
 
 ```shell

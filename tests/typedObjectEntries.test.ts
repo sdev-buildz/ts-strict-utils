@@ -1,5 +1,5 @@
+import { typedObjectEntries } from '@ts-strict-utils'
 import { describe, expect, expectTypeOf, it } from 'vitest'
-import { typedObjectEntries } from '../src/typedObjectEntries'
 
 describe('typedObjectEntries', () => {
   it('provides same result as Object.entries', () => {
