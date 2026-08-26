@@ -1,5 +1,5 @@
-import { describe, test, expectTypeOf, it } from 'vitest'
-import type { StrictExtract, StrictOmit } from '../src'
+import type { StrictExtract, StrictOmit } from '@ts-strict-utils'
+import { describe, expectTypeOf, it, test } from 'vitest'
 
 interface User {
   id: number

@@ -1,5 +1,5 @@
-import { describe, it, expect, expectTypeOf } from 'vitest'
-import { typedObjectFromEntries } from '../src/typedObjectFromEntries'
+import { typedObjectFromEntries } from '@ts-strict-utils'
+import { describe, expect, expectTypeOf, it } from 'vitest'
 
 describe('objectFromEntries', () => {
   it('should convert a Map into an object', () => {

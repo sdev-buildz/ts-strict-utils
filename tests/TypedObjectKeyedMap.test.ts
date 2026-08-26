@@ -1,5 +1,5 @@
+import { TypedObjKeyedMap } from '@ts-strict-utils'
 import { beforeEach, describe, expect, expectTypeOf, it } from 'vitest'
-import { TypedObjKeyedMap } from '../src/TypedObjectKeyedMap'
 
 // Vitest Test Suite
 let map: TypedObjKeyedMap<unknown, string>

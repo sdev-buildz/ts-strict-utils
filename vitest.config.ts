@@ -14,5 +14,12 @@ export default defineConfig({
   },
   resolve: {
     tsconfigPaths: true,
+    alias: {
+      // When TEST_PUBLISHED_PKG is true, resolve imports of your package name to the published package
+      '@ts-strict-utils':
+        process.env.TEST_PUBLISHED_PKG === 'true'
+          ? 'pkgprnew-published'
+          : './src',
+    },
   },
 })
