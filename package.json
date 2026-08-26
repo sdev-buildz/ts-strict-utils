@@ -1,26 +1,28 @@
 {
-  "name": "random-tsstutils",
-  "version": "0.1.0",
+  "name": "ts-strict-utils",
+  "version": "0.0.0",
   "description": "Utilities for TypeScript. Includes stricter built-ins, map that accepts objects as keys, etc...",
   "keywords": [
     "utilities",
     "strict",
-    "map with objects as keys",
+    "map with object keys",
+    "structural equality",
     "typescript"
   ],
   "license": "ISC",
   "author": {
-    "name": "verd-acc",
-    "email": "not-my-mail@gmail.com",
-    "url": "https://github.com/user-name"
+    "name": "sdev-buildz",
+    "email": "stevexdev@zohomail.in",
+    "url": "https://github.com/sdev-buildz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdev-buildz/ts-strict-utils.git"
   },
   "type": "module",
   "files": [
     "./dist"
   ],
-  "engines": {
-    "node": ">=22.0.0"
-  },
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
@@ -50,11 +52,14 @@
   "dependencies": {
     "canonical-serialization": "^v1.0.0"
   },
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "devEngines": {
     "runtime": {
       "name": "node",
-      "onFail": "warn",
-      "version": "^24"
+      "version": "^24",
+      "onFail": "warn"
     },
     "packageManager": {
       "name": "pnpm",
