@@ -113,6 +113,8 @@ export class TypedObjKeyedMap<KeyType, ValueType> extends Map<
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     thisArg?: any
   ): void {
-    this.getUnserializedMap().forEach(callbackfn, thisArg ?? this)
+    this.getUnserializedMap().forEach((value, key) =>
+      callbackfn.call(thisArg, value, key, this)
+    )
   }
 }

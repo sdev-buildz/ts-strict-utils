@@ -8,13 +8,17 @@ beforeEach(() => {
   map = new TypedObjKeyedMap()
 })
 
-it('accepts objects as keys', () => {
-  const key = { b: 2, a: 1 }
-  map.set(key, 'test-value')
+it('accepts iterator as constructor parameter', () => {
+  const iterator: Array<[Record<string, unknown>, string]> = [
+    [{ id: 10, category: 'A' }, 'data' + Math.random()],
+    [{ category: 'B', id: 10 }, 'data' + Math.random()],
+  ]
 
-  expect(map.get(key)).toBe('test-value')
-  expect(map.has(key)).toBe(true)
+  const map = new TypedObjKeyedMap(iterator)
+
+  expect(Array.from(map.entries())).toStrictEqual(iterator)
 })
+
 describe('keys are handled properly.', () => {
   it('acceps strings as keys.', () => {
     const key = 'test-key'
@@ -44,6 +48,14 @@ describe('keys are handled properly.', () => {
   })
 
   describe('object keys.', () => {
+    it('accepts objects as keys', () => {
+      const key = { b: 2, a: 1 }
+      map.set(key, 'test-value')
+
+      expect(map.get(key)).toBe('test-value')
+      expect(map.has(key)).toBe(true)
+    })
+
     it('treats structurally identical keys with different field orders as identical', () => {
       const key1 = { b: 2, a: 1 }
       const key2 = { a: 1, b: 2 } // Different field order
@@ -74,6 +86,7 @@ describe('keys are handled properly.', () => {
       expect(map.has(key1)).toBe(false)
       expect(map.get(key1)).toBeUndefined()
     })
+
     it('accepts objects containing circular references as keys.', () => {
       const key = {
         c: 2,
@@ -149,11 +162,15 @@ describe('overwrides Map methods.', () => {
     for (let i = 0; i < keys.length; i++) map.set(keys[i], values[i]!)
 
     let i = 0
-    map.forEach((value, key) => {
+
+    const thisArg = { test: 'test' }
+    map.forEach(function (this: typeof thisArg, value, key, map) {
       expect(value).toBe(values[i])
       expect(key).toBe(keys[i])
+      expect(map).toBe(map)
+      expect(this).toBe(thisArg)
       i += 1
-    })
+    }, thisArg)
   })
 
   it('duplicate keys are avoided', () => {
@@ -178,17 +195,6 @@ describe('overwrides Map methods.', () => {
     map.clear()
     expect(map.size).toStrictEqual(0)
   })
-})
-
-it('accepts iterator as constructor parameter', () => {
-  const iterator: Array<[Record<string, unknown>, string]> = [
-    [{ id: 10, category: 'A' }, 'data' + Math.random()],
-    [{ category: 'B', id: 10 }, 'data' + Math.random()],
-  ]
-
-  const map = new TypedObjKeyedMap(iterator)
-
-  expect(Array.from(map.entries())).toStrictEqual(iterator)
 })
 
 it('serializes values robustly across diverse nested structures', () => {
