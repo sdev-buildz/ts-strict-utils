@@ -17,7 +17,7 @@ Please follow a respectful, collaborative, and inclusive tone in all discussions
 
 1. Fork the repo and create a feature branch from the repository's default branch:
 
-   git clone https://github.com/<your-username>/ts-strict-utils.git
+   git clone https://github.com/sdev_buildz/ts-strict-utils.git
    cd ts-strict-utils
    git checkout -b feat/short-description
 
