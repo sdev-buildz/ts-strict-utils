@@ -26,16 +26,14 @@ Please follow a respectful, collaborative, and inclusive tone in all discussions
 2. Install dependencies:
    
 ```shell
-   npm install
+   pnpm install
 ```
 3. Run linters, type checks, and tests locally before opening a PR:
 
 ```shell
-   npm run test
-   npm run check
+   pnpm run test
+   pnpm run check
 ```
-
-Adjust the above commands if this repository uses yarn or pnpm.
 
 ## Project conventions
 
