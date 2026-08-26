@@ -17,18 +17,23 @@ Please follow a respectful, collaborative, and inclusive tone in all discussions
 
 1. Fork the repo and create a feature branch from the repository's default branch:
 
+```shell
    git clone https://github.com/sdev_buildz/ts-strict-utils.git
    cd ts-strict-utils
    git checkout -b feat/short-description
+```
 
 2. Install dependencies:
-
+   
+```shell
    npm install
-
+```
 3. Run linters, type checks, and tests locally before opening a PR:
 
+```shell
    npm run test
    npm run check
+```
 
 Adjust the above commands if this repository uses yarn or pnpm.
 
