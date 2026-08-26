@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, expectTypeOf, it } from 'vitest'
 import { TypedObjKeyedMap } from '../src/TypedObjectKeyedMap'
 
 // Vitest Test Suite
@@ -111,6 +111,73 @@ describe('keys are handled properly.', () => {
   it('returns false for unknown keys', () => {
     const key = { a: 1, b: 2 }
     expect(map.has(key)).toBe(false)
+  })
+})
+
+describe('type safety and type inference.', () => {
+  it('accepts types for keys and values.', () => {
+    const map1 = new TypedObjKeyedMap<string, number>()
+    // @ts-expect-error - should throw type error.
+    map1.set(2, 5)
+    // @ts-expect-error - should throw type error.
+    map1.set('abc', '1')
+
+    const map2 = new TypedObjKeyedMap<Record<string, unknown>, Array<unknown>>()
+    // @ts-expect-error - should throw type error.
+    map2.set(2, [undefined])
+    // @ts-expect-error - should throw type error.
+    map2.set({ a: 3 }, 5)
+    map2.set({}, [3, 'sfd', {}, undefined])
+    map2.set({ 3: 'a' }, [4, 5, 6])
+
+    const map3 = new TypedObjKeyedMap<
+      { a: number; b: string },
+      Record<string, number>
+    >()
+    map3.set({ a: 3, b: '' }, {})
+    // @ts-expect-error - should throw type error.
+    map3.set({ a: 3, b: '' }, { a: 'b' })
+    // @ts-expect-error - should throw type error.
+    map3.set({ a: 3, c: '' }, { a: 2 })
+    // @ts-expect-error - should throw type error.
+    map3.set({}, { a: 2 })
+  })
+
+  it('infers key and value types from iterator passed to constructor.', () => {
+    const map1 = new TypedObjKeyedMap([
+      ['strKey1', 'value1'],
+      ['strKey2', 'value2'],
+    ])
+    expectTypeOf(map1).toEqualTypeOf<TypedObjKeyedMap<string, string>>()
+
+    const map2 = new TypedObjKeyedMap([
+      [1, { a: 1, b: 2 }],
+      [2, { a: 1, b: 'str' }],
+    ])
+    expectTypeOf(map2).toEqualTypeOf<
+      TypedObjKeyedMap<
+        number,
+        { a: number; b: number } | { a: number; b: string }
+      >
+    >()
+
+    const map3 = new TypedObjKeyedMap([
+      [{ c: 'random', a: 2 }, ['abc']],
+      [{ c: 'random' }, [1, 'sdf']],
+    ])
+    expectTypeOf(map3).toEqualTypeOf<
+      TypedObjKeyedMap<
+        | {
+            c: string
+            a: number
+          }
+        | {
+            c: string
+            a?: never
+          },
+        Array<string | number>
+      >
+    >()
   })
 })
 
