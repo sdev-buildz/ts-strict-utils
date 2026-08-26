@@ -1,26 +1,28 @@
 {
-  "name": "random-tsstutils",
-  "version": "0.1.0",
-  "description": "",
+  "name": "ts-strict-utils",
+  "version": "0.0.0",
+  "description": "Utilities for TypeScript. Includes stricter built-ins, map that accepts objects as keys, etc...",
   "keywords": [
     "utilities",
     "strict",
-    "map with objects as keys",
+    "map with object keys",
+    "structural equality",
     "typescript"
   ],
   "license": "ISC",
   "author": {
-    "name": "verd-acc",
-    "email": "not-my-mail@gmail.com",
-    "url": "https://github.com/user-name"
+    "name": "sdev-buildz",
+    "email": "stevexdev@zohomail.in",
+    "url": "https://github.com/sdev-buildz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdev-buildz/ts-strict-utils.git"
   },
   "type": "module",
   "files": [
     "./dist"
   ],
-  "engines": {
-    "node": ">=22.0.0"
-  },
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
@@ -29,16 +31,16 @@
     }
   },
   "scripts": {
-    "check": "pnpm run prettier:check && pnpm run lint && pnpm run type-check && pnpm run coverage && pnpm run knip",
-    "clean": "pnx  rimraf -g **/dist *.tsbuildinfo **/*.tsbuildinfo  **/generated generated coverage docs",
+    "check": "turbo prettier:check lint type-check coverage:ci knip build",
+    "clean": "pnx rimraf -g **/dist *.tsbuildinfo **/*.tsbuildinfo  **/generated generated .turbo coverage docs",
     "clean:all": "pnpm run clean && pnx rimraf -g **/node_modules node_modules",
-    "release": "pnpm publish && npx @changesets/cli tag",
-    "git-tag": "TAG=\"release-`date +%s`\" && git tag $TAG && git push origin $TAG",
+    "release": "turbo build && pnpm publish",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "build": "tsdown",
     "dev": "tsdown --watch",
-    "type-check": "tsc --noEmit",
+    "type-check": "tsc --build",
+    "coverage:ci": "vitest --coverage --ui=false",
     "knip": "knip",
     "lint": "eslint",
     "prettier:check": "prettier --check .",
@@ -48,7 +50,22 @@
     "docs:all": "pnpm run docs:user && pnpm run docs:dev"
   },
   "dependencies": {
-    "canonical-serialization": "npm:random12341234@^1.2.6"
+    "canonical-serialization": "^v1.0.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24",
+      "onFail": "warn"
+    },
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11",
+      "onFail": "warn"
+    }
   },
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.0",
@@ -65,9 +82,14 @@
     "prettier": "3.9.6",
     "tsdown": "^0.22.14",
     "tsx": "^4.23.1",
+    "turbo": "^2.10.11",
     "typedoc": "^0.28.20",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "typescript-eslint": "^8.65.0",
     "vitest": "^4.1.10"
+  },
+  "funding": {
+    "type": "buymeacoffee",
+    "url": "https://buymeacoffee.com/stevenx.dev"
   }
 }

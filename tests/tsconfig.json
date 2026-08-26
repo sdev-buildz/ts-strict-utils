@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.references.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "paths": {
+      "@ts-strict-utils": ["../src"]
+    }
+  },
+  "references": [
+    {
+      "path": "../src"
+    }
+  ],
+  "include": ["./**/*.ts", "./**/*.tsx"]
+}

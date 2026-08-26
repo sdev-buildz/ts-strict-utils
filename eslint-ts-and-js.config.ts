@@ -10,7 +10,6 @@ import tseslint from 'typescript-eslint'
 export const eslintJsConfig: Parameters<typeof defineConfig>[number] = [
   {
     files: [`**/*.{js,mjs,cjs,jsx}`],
-    // ignores: ['**/generated'],
     languageOptions: {
       parser: tseslint.parser,
     },
@@ -62,7 +61,6 @@ export const eslintTsConfig: Parameters<typeof defineConfig>[number] = [
    */
   {
     files: [`**/*.{ts,mts,cts,tsx}`],
-    // ignores: ['**/generated'],
     languageOptions: {
       parser: tseslint.parser,
     },

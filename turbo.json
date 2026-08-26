@@ -1,0 +1,76 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "tasks": {
+    "prettier:check": {},
+    "lint": {},
+    "build": {
+      "outputs": ["./dist/**"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!*.*",
+        "src/**",
+        "!**/dist/**",
+        "package.json",
+        "pnpm-workspace.yaml",
+        "tsdown.config.ts",
+        "turbo.json"
+      ]
+    },
+    "type-check": {
+      "outputs": ["generated/**", "src/dist/**", "tests/dist/**"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!*.yaml",
+        "src/**",
+        "tests/**",
+        "!**/dist/**",
+        "package.json",
+        "pnpm-workspace.yaml",
+        "*.ts",
+        "*.js"
+      ]
+    },
+    "coverage": {
+      "outputs": ["./coverage/**"],
+      "persistent": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!*.*",
+        "src/**",
+        "tests/**",
+        "!**/dist/**",
+        "package.json",
+        "pnpm-workspace.yaml",
+        "*tsconfig*.json"
+      ]
+    },
+    "coverage:ci": {
+      "outputs": ["./coverage/**"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!*.yaml",
+        "src/**",
+        "tests/**",
+        "!**/dist/**",
+        "package.json",
+        "pnpm-workspace.yaml"
+      ]
+    },
+    "knip": {
+      "inputs": ["$TURBO_DEFAULT$", "!.github/**", "!.vscode/**", "**/*.md"]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!*.*",
+        "src/**",
+        "package.json",
+        "pnpm-workspace.yaml",
+        "tsdown.config.ts",
+        "turbo.json"
+      ]
+    }
+  }
+}
