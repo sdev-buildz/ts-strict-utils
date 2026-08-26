@@ -6,7 +6,7 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "sdev_buildz/ts-strict-utils"
+      "repo": "sdev-buildz/ts-strict-utils"
     }
   ],
   "commit": true,
