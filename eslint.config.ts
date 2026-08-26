@@ -5,7 +5,7 @@ import { eslintJsConfig, eslintTsConfig } from './eslint-ts-and-js.config'
 
 export default defineConfig([
   // includeIgnoreFile(path.join(import.meta.dirname, '.gitignore')),
-  { ignores: ['dist', '**/generated'] },
+  { ignores: ['**/dist', '**/generated'] },
   eslintJsConfig,
   eslintTsConfig,
   /**
