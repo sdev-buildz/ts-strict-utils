@@ -6,55 +6,25 @@
     "build": {
       "outputs": ["./dist/**"],
       "inputs": [
-        "$TURBO_DEFAULT$",
-        "!*.*",
         "src/**",
         "!**/dist/**",
+        "**/*tsconfig*.json",
         "package.json",
-        "pnpm-workspace.yaml",
-        "tsdown.config.ts",
-        "turbo.json"
+        "pnpm-lock.yaml"
       ]
     },
     "type-check": {
       "outputs": ["generated/**", "src/dist/**", "tests/dist/**"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "!*.yaml",
-        "src/**",
-        "tests/**",
-        "!**/dist/**",
-        "package.json",
-        "pnpm-workspace.yaml",
-        "*.ts",
-        "*.js"
-      ]
+      "inputs": ["$TURBO_DEFAULT$", "!.github/**", "!.vscode/**", "!*.md"]
     },
     "coverage": {
       "outputs": ["./coverage/**"],
       "persistent": true,
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "!*.*",
-        "src/**",
-        "tests/**",
-        "!**/dist/**",
-        "package.json",
-        "pnpm-workspace.yaml",
-        "*tsconfig*.json"
-      ]
+      "inputs": ["$TURBO_DEFAULT$", "!.github/**", "!.vscode/**", "!*.md"]
     },
     "coverage:ci": {
       "outputs": ["./coverage/**"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "!*.yaml",
-        "src/**",
-        "tests/**",
-        "!**/dist/**",
-        "package.json",
-        "pnpm-workspace.yaml"
-      ]
+      "inputs": ["$TURBO_DEFAULT$", "!.github/**", "!.vscode/**", "!*.md"]
     },
     "knip": {
       "inputs": ["$TURBO_DEFAULT$", "!.github/**", "!.vscode/**", "**/*.md"]
@@ -62,15 +32,7 @@
     "dev": {
       "persistent": true,
       "cache": false,
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "!*.*",
-        "src/**",
-        "package.json",
-        "pnpm-workspace.yaml",
-        "tsdown.config.ts",
-        "turbo.json"
-      ]
+      "inputs": ["$TURBO_DEFAULT$", "!.github/**", "!.vscode/**", "!*.md"]
     }
   }
 }
