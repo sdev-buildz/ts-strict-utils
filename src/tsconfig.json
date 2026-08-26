@@ -1,9 +1,6 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "../tsconfig.references.base.json",
   "compilerOptions": {
-    "composite": true,
-    "emitDeclarationOnly": true,
-    "noEmit": false,
     "outDir": "./dist"
   },
   "include": ["./**/*.ts", "./**/*.tsx"]

@@ -1,10 +1,7 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "../tsconfig.references.base.json",
   "compilerOptions": {
-    "composite": true,
     "outDir": "./dist",
-    "emitDeclarationOnly": true,
-    "noEmit": false,
     "paths": {
       "@ts-strict-utils": ["../src"]
     }
