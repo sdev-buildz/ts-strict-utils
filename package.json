@@ -61,7 +61,7 @@
     "canonical-serialization": "^v1.0.0"
   },
   "peerDependencies": {
-    "typescript": ">=3.5.1"
+    "typescript": ">=4.7.0"
   },
   "engines": {
     "node": ">=22.0.0"
