@@ -8,11 +8,11 @@ Utilities for TypeScript. Includes stricter built-ins, map that accepts objects 
 
 ## 🚀 Features
 
-- TypedObjKeyedMap - A typed Map data structure that accepts objects as keys, where keys are compared based on deep structural equality.
-- StrictOmit - An Utility type that enforces omitted keys to exist on the original type, with full IDE auto-completion support.
-- StrictExtract - An Utility type that enforces extracted keys to exist on the original type, with full IDE auto-completion support.
-- typedObjectEntries - A strongly typed version of Object.entries.
-- typedObjectFromEntries - A strongly typed version of Object.fromEntries.
+- **TypedObjKeyedMap** - A typed Map data structure that accepts objects as keys, where keys are compared based on deep structural equality.
+- **StrictOmit** - An Utility type that enforces omitted keys to exist on the original type, with full IDE auto-completion support.
+- **StrictExtract** - An Utility type that enforces extracted keys to exist on the original type, with full IDE auto-completion support.
+- **typedObjectEntries** - A strongly typed version of Object.entries.
+- **typedObjectFromEntries** - A strongly typed version of Object.fromEntries.
 
 ## 📦 Installation
 

@@ -3,7 +3,7 @@ import { canonicalSerialization } from 'canonical-serialization'
 /**
  * A typed Map data structure that accepts objects as keys, where keys are compared based on
  *  deep structural equality.
- * @see {@link canonicalSerialization} - used to sort and serialize.
+ * @see {@link canonicalSerialization} - used to sort objects' keys and serialize.
  * @example
  * ```ts
  * type ObjKeyType = {
