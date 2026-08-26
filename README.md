@@ -97,8 +97,8 @@ type WithStrictExtract = StrictExtract<Original, 'utils' | 'stryct'>
 
 ## 👥 Community & Support
 
-- 💬 _**Have an idea?**_ Suggest new features in GitHub Discussions.
+- 💬 _**Have an idea?**_ Suggest new features in [GitHub Discussions](../..//discussions).
 
-- 🚀 _**Support me or my projects**_ through donations via GitHub Sponsors.
+- 🚀 _**Support me or my projects**_ through [donations](https://buymeacoffee.com/stevenx.dev).
 
-- 💼 _**Need custom work or consultation?**_ I am available for hire! Reach out via email.
+- 💼 _**Need custom work or consultation?**_ I am available for hire! Reach out via [email](mailto:stevexdev@zohomail.in).
